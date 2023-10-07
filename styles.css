@@ -1,0 +1,22 @@
+
+
+/* CART */
+.cart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    /* right: 100%; */
+    width: 376px;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid green;
+    transition: 1.5s;
+    z-index: 99;
+}
+
+.cart.active {
+    right: 0;
+    transition: 0.5s;
+}
+ 
