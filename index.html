@@ -1,126 +1,542 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gologodo | Ecommerce Shopping Cart</title>
-    <link rel="stylesheet" href="styles.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css" />
 
     <!-- Font Awesome -->
-<link
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-rel="stylesheet"
-/>
-<!-- Google Fonts -->
-<link
-href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-rel="stylesheet"
-/>
-<!-- MDB -->
-<link
-href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css"
-rel="stylesheet"
-/>
-</head>
-<body>
-    <main>
-        <header>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css"
+      rel="stylesheet"
+    />
+    <!-- JQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <!-- Container wrapper -->
-    <div class="container-fluid">
-      <!-- Toggle button -->
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-mdb-toggle="collapse"
-        data-mdb-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <i class="fas fa-bars"></i>
-      </button>
-  
-      <!-- Collapsible wrapper -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- Navbar brand -->
-        <a class="navbar-brand mt-2 mt-lg-0" href="#">
-          <span class="fs-4 fw-bolder bg-danger bg-opacity-25 rounded p-2">Golo<span class="text-success">godo</span></span>
-        </a>
-      </div>
-      <!-- Collapsible wrapper -->
-      <!-- Right elements -->
-    <div class="d-flex align-items-center">
-        <!-- Icon -->
-        <a class="border rounded me-3" href="#">
-            <i class="fas fa-basket-shopping text-muted fa-2x p-2"><sup class="bg-secondary p-1 bg-opacity-75 rounded-circle text-white">0</sup></i>
-        </a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <!-- Container wrapper -->
+      <div class="container-fluid">
+        <!-- Toggle button -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-mdb-toggle="collapse"
+          data-mdb-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Navbar brand -->
+          <a class="navbar-brand mt-2 mt-lg-0" href="">
+            <span
+              class="fs-4 fw-bolder bg-danger bg-opacity-25 rounded p-2"
+              style="text-shadow: 2px 2px #9fa6b2"
+              >Golo<span class="text-success">godo</span></span
+            >
+          </a>
         </div>
+        <!-- Collapsible wrapper -->
+
+        <!-- Right elements -->
+        <div class="d-flex align-items-center">
+          <!-- cart button -->
+          <a
+            type="button"
+            class="btn hover-overlay btn-outline-success open-cart"
+            id="btn"
+            data-mdb-ripple-color="green"
+            data-bs-toggle="modal"
+            data-bs-target="#cart"
+          >
+            <i class="fas fa-basket-shopping"></i> Cart (<span
+              class="total-count"
+            ></span
+            >)
+          </a>
+        </div>
+        <!-- Right elements -->
       </div>
-      <!-- Right elements -->
-    </div>
-    <!-- Container wrapper -->
-  </nav>
-  <!-- Cart -->
-  <div class="cart bg-danger bg-opacity-50">
-    <!-- Cart Close -->
-    <span class="bg-white bg-opacity-50 px-3 pt-3 pb-1 text-danger"><i class="fas fa-xmark fa-2x" id="cart-close"></i></span>
-    <h2 class="text-center fw-bold cart-title mt-3 mb-4">Your Cart</h2>
-    <div class="container cart-content">
-        <div class="card rounded card-box mb-1">
-        <div class="d-flex align-items-center bg-light mt-2 mb-2" style="max-height: 100px;">
-            <div class="col-md-4 p-1">
-                <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" alt="" class="cart-img rounded img-fluid w-100">
+      <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+
+    
+    <main>
+      <!-- Products Container -->
+      <div class="container pt-5 mt-5">
+        <h2
+          class="fw-bolder text-white bg-secondary bg-opacity-75 text-center mt-3 mb-5"
+          style="text-shadow: 2px 2px #14a44d"
+        >
+          Featured Products
+        </h2>
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <div
+              class="card ui-card bg-opacity-25"
+              style="background-color: #ffebee"
+            >
+              <div
+                class="bg-image hover-overlay ripple"
+                data-mdb-ripple-color="light"
+              >
+                <img src="./images/s_whitegreen.png" class="img-fluid p-2" />
+                <a href="">
+                  <div
+                    class="mask"
+                    style="background-color: rgba(251, 251, 251, 0.15)"
+                  ></div>
+                </a>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-center">
+                  Teratech Heritage sneaker
+                </h5>
+                <p
+                  class="text-center price-text bg-secondary text-white fs-5 fw-bolder mt-4 mb-4"
+                >
+                  R 1799
+                </p>
+                <img
+                  src="./images/fila.png"
+                  alt="brand: fila"
+                  style="width: 20%"
+                />
+                <a
+                  href=""
+                  data-name="Teratech Heritage sneaker"
+                  data-brand="FILA"
+                  data-image="s_whitegreen.png"
+                  data-price="1799"
+                  class="add-to-cart ripple btn-add rounded float-end p-2"
+                >
+                  <i class="fas fa-cart-plus fa-2x"></i>
+                </a>
+              </div>
             </div>
-            <div class="col-md-5 text-center"><div class="detail-box">
-                <div class="fw-bold text-success fs-6 cart-product-title">Produc Title</div>
-                <div class="fw-bold text-muted cart-price">R 456.78</div>
-                <input type="number" value="1" class="form-control w-50 cart-quantity" style="margin-left: 25%;">
-               </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <div
+              class="card ui-card bg-opacity-25"
+              style="background-color: #ffebee"
+            >
+              <div
+                class="bg-image hover-overlay ripple"
+                data-mdb-ripple-color="light"
+              >
+                <img src="./images/gelquantum.png" class="img-fluid p-2" />
+                <a href="">
+                  <div
+                    class="mask"
+                    style="background-color: rgba(251, 251, 251, 0.15)"
+                  ></div>
+                </a>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-center">Gel-Quantum Lyte II</h5>
+                <p
+                  class="text-center price-text bg-secondary text-white fs-5 fw-bolder mt-4 mb-4"
+                >
+                  R 1500
+                </p>
+                <img
+                  src="./images/asics-01-logo-svg-vector.svg"
+                  alt="brand: asics"
+                  style="width: 20%"
+                />
+                <a
+                  href=""
+                  data-name="Gel-Quantum Lyte II"
+                  data-brand="ASICS"
+                  data-image="gelquantum.png"
+                  data-price="1500"
+                  class="add-to-cart  ripple float-end btn-add rounded p-2"
+                >
+                  <i class="fas fa-cart-plus fa-2x"></i>
+                </a>
+              </div>
             </div>
-            <div class="col-md-3 text-center"><a href="" class="text-danger"><i class="fas fa-trash"></i></a></div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <div
+              class="card ui-card bg-opacity-25"
+              style="background-color: #ffebee"
+            >
+              <div
+                class="bg-image hover-overlay ripple"
+                data-mdb-ripple-color="light"
+              >
+                <img src="./images/jeepbts.png" class="img-fluid p-2" />
+                <a href="">
+                  <div
+                    class="mask"
+                    style="background-color: rgba(251, 251, 251, 0.15)"
+                  ></div>
+                </a>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-center">STR Terra Walker</h5>
+                <p
+                  class="text-center price-text bg-secondary text-white fs-5 fw-bolder mt-4 mb-4"
+                >
+                  R 1199
+                </p>
+                <img
+                  src="./images/jeep-logo.png"
+                  alt="brand: jeep"
+                  style="width: 30%"
+                />
+                <a
+                  href=""
+                  data-name="STR Terra Walker"
+                  data-brand="JEEP"
+                  data-image="jeepbts.png"
+                  data-price="1199"
+                  class="add-to-cart ripple float-end btn-add rounded p-2"
+                >
+                  <i class="fas fa-cart-plus fa-2x"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <div
+              class="card ui-card bg-opacity-25"
+              style="background-color: #ffebee"
+            >
+              <div
+                class="bg-image hover-overlay ripple"
+                data-mdb-ripple-color="light"
+              >
+                <img src="./images/etsleather.png" class="img-fluid p-2" />
+                <a href="">
+                  <div
+                    class="mask"
+                    style="background-color: rgba(251, 251, 251, 0.15)"
+                  ></div>
+                </a>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-center">Leather Male Industry</h5>
+                <p
+                  class="text-center price-text bg-secondary text-white fs-5 fw-bolder mt-4 mb-4"
+                >
+                  R 2399
+                </p>
+                <span
+                  class="fw-bolder text-muted fs-4"
+                  style="font-family: 'Segoe Script'"
+                  >el'estilo</span
+                >
+                <a
+                  href=""
+                  data-name="Leather Male Industry"
+                  data-brand="EL'ESTILO"
+                  data-image="etsleather.png"
+                  data-price="2399"
+                  class="add-to-cart ripple float-end btn-add rounded p-2"
+                >
+                  <i class="fas fa-cart-plus fa-2x"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <div
+              class="card ui-card bg-opacity-25"
+              style="background-color: #ffebee"
+            >
+              <div
+                class="bg-image hover-overlay ripple"
+                data-mdb-ripple-color="light"
+              >
+                <img src="./images/airmaxp.png" class="img-fluid p-2" />
+                <a href="">
+                  <div
+                    class="mask"
+                    style="background-color: rgba(251, 251, 251, 0.15)"
+                  ></div>
+                </a>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-center">Air Max Alpha Trainer 5</h5>
+                <p
+                  class="text-center price-text bg-secondary text-white fs-5 fw-bolder mt-4 mb-4"
+                >
+                  R 1599
+                </p>
+                <img
+                  src="./images/nike-air-max-logo.png"
+                  alt="brand: nike"
+                  style="width: 30%"
+                />
+                <a
+                  href=""
+                  data-name="Air Max Alpha Trainer 5"
+                  data-brand="NIKE"
+                  data-image="airmaxp.png"
+                  data-price="1599"
+                  class="add-to-cart ripple float-end btn-add rounded p-2"
+                >
+                  <i class="fas fa-cart-plus fa-2x"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <div
+              class="card ui-card bg-opacity-25"
+              style="background-color: #ffebee"
+            >
+              <div
+                class="bg-image hover-overlay ripple"
+                data-mdb-ripple-color="light"
+              >
+                <img src="./images/vansvr3.png" class="img-fluid p-2" />
+                <a href="">
+                  <div
+                    class="mask"
+                    style="background-color: rgba(251, 251, 251, 0.15)"
+                  ></div>
+                </a>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-center">Men's Old Skool</h5>
+                <p
+                  class="text-center price-text bg-secondary text-white fs-5 fw-bolder mt-4 mb-4"
+                >
+                  R 1399
+                </p>
+                <img
+                  src="./images/vans-3-logo-svg-vector.svg"
+                  alt="brand: vans"
+                  style="width: 20%"
+                />
+                <a
+                  href=""
+                  data-name="Men&#145;s Old Skool"
+                  data-brand="VANS"
+                  data-image="vansvr3.png"
+                  data-price="1399"
+                  class="add-to-cart ripple float-end btn-add rounded p-2"
+                >
+                  <i class="fas fa-cart-plus fa-2x"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <div
+              class="card ui-card bg-opacity-25"
+              style="background-color: #ffebee"
+            >
+              <div
+                class="bg-image hover-overlay ripple"
+                data-mdb-ripple-color="light"
+              >
+                <img src="./images/jcbsneaker.png" class="img-fluid p-2" />
+                <a href="">
+                  <div
+                    class="mask"
+                    style="background-color: rgba(251, 251, 251, 0.15)"
+                  ></div>
+                </a>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-center">JCB Jogger</h5>
+                <p
+                  class="text-center price-text text-center bg-secondary text-white fs-5 fw-bolder mt-4 mb-4"
+                >
+                  R 989
+                </p>
+                <img
+                  src="./images/jcb-logo.svg"
+                  alt="brand: jcb"
+                  style="width: 20%"
+                />
+                <a
+                  href=""
+                  data-name="JCB Jogger"
+                  data-brand="JCB"
+                  data-image="p_shadow.png"
+                  data-price="989"
+                  class="add-to-cart ripple float-end btn-add rounded p-2"
+                >
+                  <i class="fas fa-cart-plus fa-2x"></i>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-    <!-- Total -->
-    <div class="total mt-4">
-        <div class="total-title text-center text-light fs-4 fw-bold bg-secondary bg-opacity-50">Total: R 0</div>
-    </div>
-    <!-- Purchase Button -->
-    <div class="text-center">
-    <button class="btn btn-success fs-4 mt-3">Purchase</button>
-</div>
-    
-  </div>
-  <!-- Navbar -->
-</header>
+      </div>
+      <!-- Products Container -->
 
-  <!-- Products Container -->
-  <div class="container mt-5" style="z-index: 1;">
-    <h3>Featured Products</h3>
-    <div class="row mt-5">
-        <div class="col-md-3">
-            <div class="card">
-                <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                  <img src="https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp" class="img-fluid p-2"/>
-                  <a href="#!">
-                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                  </a>
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title text-center">Card title</h5>
-                  <p class="text-center text-muted fs-5 fw-bolder">R 456<sup>99</sup></p>
-                  <a href="#!" class="float-end text-success"><i class="fas fa-cart-plus fa-2x"></i></a>
-                </div>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="cart"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <table class="table table-striped">
+                <thead class="bg-light">
+                  <tr class="bg-secondary text-white">
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Remove</th>
+                    <th>Price</th>
+                  </tr>
+                </thead>
+                <tbody class="show-cart"></tbody>
+              </table>
+              <div class="fw-bolder fs-4 text-muted text-shadow text-center bg-success bg-opacity-25">
+                Subtotal: R <span class="total-cart"></span>
               </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary clear-cart text-danger"
+                data-dismiss="modal"
+              >
+                Clear cart
+              </button>
+              <button
+                type="button"
+                class="btn btn-success clear-cart close"
+                id="modal2"
+              >
+                Order now
+              </button>
+            </div>
+          </div>
         </div>
-  </div>
-</main>
+      </div>
+      <!-- Modal -->
+
+      <!-- Footer -->
+      <footer class="text-center text-white" style="background-color: #f1f1f1">
+        <!-- Grid container -->
+        <div class="container pt-4">
+          <!-- Section: Social media -->
+          <section class="mb-4">
+            <!-- Facebook -->
+            <a
+              class="btn btn-white-50 btn-floating btn-lg text-dark m-1"
+              href=""
+              role="button"
+              style="color: pink"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+
+            <!-- Twitter -->
+            <a
+              class="btn btn-white-50 btn-floating btn-lg text-dark m-1"
+              href=""
+              role="button"
+              data-mdb-ripple-color="purple"
+              ><i class="fab fa-twitter"></i
+            ></a>
+
+            <!-- Google -->
+            <a
+              class="btn btn-white-50 btn-floating btn-lg text-dark m-1"
+              href=""
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-google"></i
+            ></a>
+
+            <!-- Instagram -->
+            <a
+              class="btn btn-white-50 btn-floating btn-lg text-dark m-1"
+              href=""
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-instagram"></i
+            ></a>
+
+            <!-- Linkedin -->
+            <a
+              class="btn btn-white-50 btn-floating btn-lg text-dark m-1"
+              href=""
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <!-- Github -->
+            <a
+              class="btn btn-white-50 btn-floating btn-lg text-dark m-1"
+              href=""
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-github"></i
+            ></a>
+          </section>
+          <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div
+          class="text-center text-dark p-3"
+          style="background-color: rgba(0, 0, 0, 0.2)"
+        >
+          © 2023 Copyright:
+          <a class="text-dark" href="">Gologodo.com</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+      <!-- Footer -->
+    </main>
 
     <!-- MDB -->
-<script
-type="text/javascript"
-src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"
-></script>
-</body>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"
+    ></script>
+
+    <!-- JS link -->
+    <script src="scripts.js"></script>
+  </body>
 </html>

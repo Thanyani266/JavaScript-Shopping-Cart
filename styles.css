@@ -1,22 +1,37 @@
-
-
-/* CART */
-.cart {
-    position: fixed;
-    top: 0;
-    right: 0;
-    /* right: 100%; */
-    width: 376px;
-    height: 100vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-    border: 1px solid green;
-    transition: 1.5s;
-    z-index: 99;
+.show-cart li {
+    display: flex;
 }
 
-.cart.active {
-    right: 0;
-    transition: 0.5s;
+.card {
+    margin-bottom: 20px;
 }
- 
+
+.card-img-top {
+    width: 200px;
+    height: 200px;
+    align-self: center;
+}
+
+.price-text{
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    text-shadow: 2px 1px #14a44d;
+}
+
+.btn-add{
+    color: #14a44d;
+    background-color: transparent;
+    border: 2px ridge #14a44d;
+}
+
+.btn-add:hover {
+    color: #FFEBEE;
+    background-color: #14a44d;
+}
+
+.table td img{
+    height: 20%;
+}
+
+.delete-item{
+    cursor: pointer;
+}
