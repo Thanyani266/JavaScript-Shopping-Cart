@@ -1,6 +1,6 @@
 ## Shopping-Cart
 
-####### This simple shopping cart application allows users to add and remove items, update quantities, and calculate the total cost.
+###### This simple shopping cart application allows users to add and remove items, update quantities, and calculate the total cost.
 
 Users Navigation:
 
