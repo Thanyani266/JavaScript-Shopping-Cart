@@ -8,3 +8,5 @@ Users Navigation:
 * To add the product to the cart, click the green shopping cart icon button.  If you click more than once, the quantity of the selected product will be increased.
 * To view the cart, click the cart button at the right end of the navbar. You can remove an item, change the quantity, or remove all products from this page(modal).
 * If you are satisfied with your choices, you can make a purchase by clicking the 'order now' option.
+
+The web app is live at [Shopping Cart](https://vimeo.com/894414683/b7cdab6331?share=copy)
