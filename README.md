@@ -9,4 +9,4 @@ Users Navigation:
 * To view the cart, click the cart button at the right end of the navbar. You can remove an item, change the quantity, or remove all products from this page(modal).
 * If you are satisfied with your choices, you can make a purchase by clicking the 'order now' option.
 
-The web app is live at [Shopping Cart](https://vimeo.com/894414683/b7cdab6331?share=copy)
+The web app demo is available at [Shopping Cart](https://vimeo.com/894414683/b7cdab6331?share=copy)
